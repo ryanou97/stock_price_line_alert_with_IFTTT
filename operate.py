@@ -28,7 +28,7 @@ if __name__ == '__main__':
         log2.append('')    #}
     
     
-    check_cnt = 3
+    check_cnt = 5
     
     
     
@@ -75,6 +75,7 @@ if __name__ == '__main__':
                     
         print('--------------')
         
-        time.sleep(3)            
+        time.sleep(60)            
+      
         
 
