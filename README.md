@@ -5,10 +5,10 @@
 module.py用於的function，operate.py作為主要操作程式。
 
 ## 文件結構
-operate.py: 主要的程式入口，負責設定、操作和執行監控。
-module.py: 包含讀取股價紀錄、取得即時報價、買賣策略、發送至IFTTT推播到line Notify的函數和邏輯。
-IFTTT_info.py: 包含IFTTT的相關設定信息，此為個人資訊需自行創建。
-stock_.txt: 包含要監控的台股代號和相關的買進位置和賣出位置。
+- operate.py: 主要的程式入口，負責設定、操作和執行監控。
+- module.py: 包含讀取股價紀錄、取得即時報價、買賣策略、發送至IFTTT推播到line Notify的函數和邏輯。
+- IFTTT_info.py: 包含IFTTT的相關設定信息，此為個人資訊需自行創建。
+- stock_.txt: 包含要監控的台股代號和相關的買進位置和賣出位置。
 
 ## 如何使用
 
