@@ -9,19 +9,11 @@ import IFTTT_info
 
 
 
-trigger_func_name = IFTTT_info.trigger_func_name
-key = IFTTT_info.ifttt_key
-file_path = IFTTT_info.file_path + '\\stock.txt'
-
-
-def fortest():
-    print("hello")
-
 def get_setting(): 
     
     
-    file_path = IFTTT_info.file_path + '\\stock.txt'
-    print(file_path)
+    file_path = IFTTT_info.file_path + '\\stock_.txt'
+    
     try:
         with open(file_path) as f:  
             slist = f.readlines()     
@@ -30,19 +22,23 @@ def get_setting():
             for lst in slist:
                 s = lst.split(',')
                 res.append([s[0], float(s[1]), float(s[2])])
+                
     except:
         print('stock.txt 讀取錯誤')
         return None
 
     return res
 
-print(get_setting())
+
 
 def get_price(stockid):  
     rt = twstock.realtime.get(stockid)   
-    if rt['success']:                    
-        return (rt['info']['name'],    
+    if rt['success']:
+        try:                    
+            return (rt['info']['name'],    
                 float(rt['realtime']['latest_trade_price']))
+        except:
+            print("可能正在集合競價或報價出了點問題，稍後嘗試")   # 有遇過收盤前讀不到報價
     else:
         return (False, False)
 
@@ -59,6 +55,9 @@ def get_best(stockid):
 
 
 def send_ifttt(v1, v2, v3):   
+    trigger_func_name = IFTTT_info.trigger_func_name
+    key = IFTTT_info.ifttt_key
+    
     url = ('https://maker.ifttt.com/trigger/' +
            trigger_func_name +
            '/with/key/' +

@@ -13,10 +13,7 @@ key = IFTTT_info.ifttt_key
 file_path = IFTTT_info.file_path + '\\stock.txt'
 
     
-    
-m.fortest()
 
-"""
 if __name__ == '__main__':
     
     print(file_path)
@@ -31,6 +28,8 @@ if __name__ == '__main__':
         log2.append('')    #}
     
     check_cnt = 20 
+    
+    
     while True:
         for i in range(cnt):
             id, low, high = slist[i]  
@@ -49,10 +48,10 @@ if __name__ == '__main__':
                 if log2[i] != why: 
                     m.send_ifttt(name, price, act + ' (' +why+ ')')
                     log2[i] = why    
+                    
         print('--------------')
         check_cnt -= 1
         if check_cnt == 0: break   
         time.sleep(180)            
         
 
-"""
