@@ -7,13 +7,6 @@ import time
 import module as m 
 import IFTTT_info
 
-
-trigger_func_name = IFTTT_info.trigger_func_name
-key = IFTTT_info.ifttt_key
-file_path = IFTTT_info.file_path + '\\stock.txt'
-
-    
-
 if __name__ == '__main__':
     
     slist = m.get_setting()   #
@@ -28,9 +21,8 @@ if __name__ == '__main__':
         log2.append('')    #}
     
     
+    
     check_cnt = 5
-    
-    
     
     for j in range(check_cnt):
         

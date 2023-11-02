@@ -8,11 +8,17 @@ import requests
 import IFTTT_info
 
 
+# 此處需修改
+File_path = IFTTT_info.file_path + '\\stock_.txt'
+Trigger_func_name = IFTTT_info.trigger_func_name
+Key = IFTTT_info.ifttt_key
+
+
 # 讀取檔案 [台股代號、買進位置、賣出位置]
 def get_setting(): 
     
     
-    file_path = IFTTT_info.file_path + '\\stock_.txt'
+    file_path = File_path
     
     try:
         with open(file_path) as f:  
@@ -30,7 +36,7 @@ def get_setting():
     return res
 
 
-
+# 取得即時報價
 def get_price(stockid):  
     rt = twstock.realtime.get(stockid)   
     if rt['success']:
@@ -56,10 +62,10 @@ def get_best(stockid):
         return (False, False)  
 
 
-
+# 傳送至ifttt，接著推送到line notify
 def send_ifttt(v1, v2, v3):   
-    trigger_func_name = IFTTT_info.trigger_func_name
-    key = IFTTT_info.ifttt_key
+    trigger_func_name = Trigger_func_name
+    key = Key
     
     url = ('https://maker.ifttt.com/trigger/' +
            trigger_func_name +
