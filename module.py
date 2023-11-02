@@ -8,7 +8,7 @@ import requests
 import IFTTT_info
 
 
-
+# 讀取檔案 [台股代號、買進位置、賣出位置]
 def get_setting(): 
     
     
@@ -35,18 +35,21 @@ def get_price(stockid):
     rt = twstock.realtime.get(stockid)   
     if rt['success']:
         try:                    
+            
             return (rt['info']['name'],    
-                float(rt['realtime']['latest_trade_price']))
+                float(rt['realtime']['latest_trade_price']), str(rt['info']['time']))
+        
         except:
             print("可能正在集合競價或報價出了點問題，稍後嘗試")   # 有遇過收盤前讀不到報價
     else:
         return (False, False)
 
 
-
+# 檢查是否符合四大買賣點
 def get_best(stockid):   
     stock = twstock.Stock(stockid)
     bp = twstock.BestFourPoint(stock).best_four_point()
+    
     if(bp):
         return ('買進' if bp[0] else '賣出', bp[1])  
     else:
