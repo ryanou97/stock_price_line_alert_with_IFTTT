@@ -13,6 +13,8 @@ module.py用於的function，operate.py作為主要操作程式。
 ## 如何使用
 
 1. 需先安奘以下兩個Python庫：
+   - twstock為台股報價相關資訊的函式庫
+   - requests提供GET、POST...等各種 request 用法，此程式用於以get方式發送IFTTT網址
 
 ```shell
 pip install twstock, requests
