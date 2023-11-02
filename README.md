@@ -16,7 +16,7 @@ stock_.txt: 包含要監控的台股代號和相關的買進位置和賣出位�
 
 ```shell
 pip install twstock, requests
-
+```
 2.至[IFTTT]("https://ifttt.com")申請帳號，使用其webhooks服務
 
 3. 於stock_.txt內紀錄需要關注的股票代號，期望的買賣出位置
